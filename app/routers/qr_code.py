@@ -32,7 +32,7 @@ async def create_qr_code(request: QRCodeRequest, token: str = Depends(oauth2_sch
     qr_code_full_path = QR_DIRECTORY / qr_filename
 
     # Construct the download URL for the QR code
-    qr_code_download_url = f"{SERVER_BASE_URL}/{SERVER_DOWNLOAD_FOLDER}/{qr_filename}"
+    qr_code_download_url = f"{SERVER_BASE_URL}/{SERVER_DOWNLOAD_FOLDER}/{qr_filename}" # decode_filename_to_url(qr_filename)
     
     # Generate HATEOAS (Hypermedia As The Engine Of Application State) links for this resource
     links = generate_links("create", qr_filename, SERVER_BASE_URL, qr_code_download_url)
